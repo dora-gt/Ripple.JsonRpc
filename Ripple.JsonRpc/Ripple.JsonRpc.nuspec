@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <description>$description$</description>
+        <dependencies>
+            <!-- <dependency id="Spooky.Json20" version="1.0.0.3" /> -->
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\sub.dll" target="Content\net452" />
+    </files>
+</package>
