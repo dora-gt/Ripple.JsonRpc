@@ -16,10 +16,10 @@ namespace Ripple.JsonRpc.Tests
     [TestFixture()]
     public class Test
     {
-		// General purpose server
-		private static readonly string uriStringS1 = "http://s1.ripple.com:51234";
-		// Full-history server
-		private static readonly string uriStringS2 = "http://s2.ripple.com:51234";
+        // General purpose server
+        private static readonly string uriStringS1 = "http://s1.ripple.com:51234";
+        // Full-history server
+        private static readonly string uriStringS2 = "http://s2.ripple.com:51234";
         // Sample Account
         private static readonly string account = "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59";
 
@@ -28,8 +28,8 @@ namespace Ripple.JsonRpc.Tests
         [TestFixtureSetUp]
         public void SetUp()
         {
-			ClientConfig config = new ClientConfig(new Uri(uriStringS2));
-			this.client = new HttpClient(config);
+            ClientConfig config = new ClientConfig(new Uri(uriStringS2));
+            this.client = new HttpClient(config);
         }
 
         [Test()]
@@ -45,13 +45,13 @@ namespace Ripple.JsonRpc.Tests
             Assert.IsTrue(response.IsSuccess);
         }
 
-		[Test()]
-		public void AccountCurrenciesTest()
-		{
+        [Test()]
+        public void AccountCurrenciesTest()
+        {
             AccountCurrenciesRequest request = new AccountCurrenciesRequest(account);
-			Task<AccountCurrenciesResponse> task = request.InvokeAsync(client);
-			task.Wait();
-			AccountCurrenciesResponse response = task.Result;
+            Task<AccountCurrenciesResponse> task = request.InvokeAsync(client);
+            task.Wait();
+            AccountCurrenciesResponse response = task.Result;
 
             Console.WriteLine($"Send Currency");
             foreach (string currency in response.SendCurrencies)
@@ -59,13 +59,13 @@ namespace Ripple.JsonRpc.Tests
                 Console.WriteLine($"\tCurrency: {currency}");
             }
 
-			Console.WriteLine($"Receive Currency");
+            Console.WriteLine($"Receive Currency");
             foreach (string currency in response.ReceiveCurrencies)
-			{
-				Console.WriteLine($"\tCurrency: {currency}");
-			}
+            {
+                Console.WriteLine($"\tCurrency: {currency}");
+            }
 
-			Assert.IsTrue(response.IsSuccess);
-		}
+            Assert.IsTrue(response.IsSuccess);
+        }
     }
 }
